@@ -7,7 +7,7 @@ const forecast=require('./utils/weather')
 const app=express()
 app.use(express.static(path.join(__dirname, '/public')));
 const partialsDir=path.join(__dirname,'./tempelates/partials')
-const port=process.env.port || 3000
+const port=process.env.port
 app.set('view engine','hbs')
 app.set('views',path.join(__dirname,'./tempelates/views'))
 hbs.registerPartials(partialsDir)
