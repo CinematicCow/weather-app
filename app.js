@@ -7,7 +7,7 @@ const forecast=require('./utils/weather')
 const app=express()
 app.use(express.static(path.join(__dirname, '/public')));
 const partialsDir=path.join(__dirname,'./tempelates/partials')
-
+const port=process.env.port || 3000
 app.set('view engine','hbs')
 app.set('views',path.join(__dirname,'./tempelates/views'))
 hbs.registerPartials(partialsDir)
@@ -69,31 +69,7 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen('3000',()=>{
-    console.log('started on localhost:3000')
+app.listen('port',()=>{
+    console.log('started on '+port)
 })
 
-function getDateTime() {
-
-    var date = new Date();
-
-    var hour = date.getHours();
-    hour = (hour < 10 ? "0" : "") + hour;
-
-    var min  = date.getMinutes();
-    min = (min < 10 ? "0" : "") + min;
-
-    var sec  = date.getSeconds();
-    sec = (sec < 10 ? "0" : "") + sec;
-
-    var year = date.getFullYear();
-
-    var month = date.getMonth() + 1;
-    month = (month < 10 ? "0" : "") + month;
-
-    var day  = date.getDate();
-    day = (day < 10 ? "0" : "") + day;
-
-    return `${hour}:${min}:${sec}   ${day}/${month}/${year}`;
-
-}
