@@ -15,7 +15,7 @@ hbs.registerPartials(partialsDir)
 app.get('/',(req,res)=>{
     res.render('index',{
         title:'Weather',
-        time:getDateTime()
+       
     })
 })
 app.get('/help',(req,res)=>{
